@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Code, Rocket, ShieldCheck, Zap, BarChart3, Smartphone, Cpu } from 'lucide-react';
+import { ArrowRight, Zap, Code2, Bot, Rocket, Smartphone, BarChart3, ShieldCheck } from 'lucide-react';
+import logoSrc from '/logo.png';
 
 const Hero = () => {
   return (
@@ -68,99 +69,134 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Visual Content / Abstract Illustration */}
+          {/* Visual Content — Logo Orbital Animation */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative h-[300px] sm:h-[400px] lg:h-[450px] flex items-center justify-center"
+            transition={{ duration: 1.1, delay: 0.25, ease: 'easeOut' }}
+            className="relative h-[380px] sm:h-[440px] lg:h-[500px] flex items-center justify-center"
           >
-            {/* Central glowing orb */}
-            <div className="absolute w-64 h-64 bg-violet-primary/30 rounded-full blur-3xl animate-pulse" />
+            {/* Ambient radial glow */}
+            <div className="absolute w-72 h-72 rounded-full bg-violet-600/25 blur-[90px] animate-pulse" style={{ animationDuration: '3s' }} />
+            <div className="absolute w-48 h-48 rounded-full bg-indigo-500/20 blur-[60px] animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '1s' }} />
 
-            <div className="relative w-full max-w-md aspect-square">
-              {/* Central Card */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute inset-0 m-auto w-48 h-48 sm:w-64 sm:h-64 glass rounded-3xl flex flex-col items-center justify-center gap-4 z-20 shadow-2xl"
-              >
-                <div className="p-4 bg-gradient-primary rounded-2xl text-white">
-                  <Bot size={48} />
-                </div>
-                <div className="text-center">
-                  <p className="font-bold text-xl text-slate-900 dark:text-white">Viyan AI</p>
-                  <p className="text-sm text-violet-primary dark:text-violet-accent">Active</p>
-                </div>
-              </motion.div>
+            {/* Outer orbit ring track */}
+            <div
+              className="absolute w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] rounded-full"
+              style={{ border: '1px dashed rgba(139,92,246,0.25)' }}
+            />
 
-              {/* Floating Element 1 */}
-              <motion.div
-                animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                className="absolute top-[10%] -left-[10%] w-32 h-32 glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 z-30"
-              >
-                <div className="p-2 bg-indigo-500/10 text-indigo-500 rounded-xl">
-                  <Code size={24} />
-                </div>
-                <p className="font-semibold text-sm text-slate-900 dark:text-white">Web Apps</p>
-              </motion.div>
+            {/* Inner orbit ring track */}
+            <div
+              className="absolute w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] rounded-full"
+              style={{ border: '1px dashed rgba(167,139,250,0.18)' }}
+            />
 
-              {/* Floating Element 2 */}
-              <motion.div
-                animate={{ y: [0, -15, 0], x: [0, 15, 0] }}
-                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-[20%] -right-[5%] w-36 h-32 glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 z-10"
-              >
-                <div className="p-2 bg-emerald-500/10 text-emerald-500 rounded-xl">
-                  <Rocket size={24} />
-                </div>
-                <p className="font-semibold text-sm text-slate-900 dark:text-white">SEO Growth</p>
-              </motion.div>
+            {/* Outer orbit — 4 service pills, clockwise */}
+            {[
+              { label: 'Web Development', Icon: Code2,    color: '#818cf8', bg: 'rgba(99,102,241,0.15)',  angle: 0   },
+              { label: 'AI Integration',  Icon: Bot,       color: '#a78bfa', bg: 'rgba(167,139,250,0.15)', angle: 90  },
+              { label: 'SEO Growth',      Icon: Rocket,    color: '#34d399', bg: 'rgba(52,211,153,0.15)',  angle: 180 },
+              { label: 'Mobile Apps',     Icon: Smartphone,color: '#f472b6', bg: 'rgba(244,114,182,0.15)', angle: 270 },
+            ].map(({ label, Icon, color, bg, angle }) => {
+              const r = 170; // outer radius px
+              const rad = (angle * Math.PI) / 180;
+              const x = Math.cos(rad) * r;
+              const y = Math.sin(rad) * r;
+              return (
+                <motion.div
+                  key={label}
+                  className="absolute flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    background: bg,
+                    border: `1px solid ${color}55`,
+                    color,
+                    boxShadow: `0 0 12px 0px ${color}44`,
+                  }}
+                  animate={{
+                    x: [
+                      Math.cos(((angle + 0)   * Math.PI) / 180) * r - 0,
+                      Math.cos(((angle + 90)  * Math.PI) / 180) * r - 0,
+                      Math.cos(((angle + 180) * Math.PI) / 180) * r - 0,
+                      Math.cos(((angle + 270) * Math.PI) / 180) * r - 0,
+                      Math.cos(((angle + 360) * Math.PI) / 180) * r - 0,
+                    ],
+                    y: [
+                      Math.sin(((angle + 0)   * Math.PI) / 180) * r,
+                      Math.sin(((angle + 90)  * Math.PI) / 180) * r,
+                      Math.sin(((angle + 180) * Math.PI) / 180) * r,
+                      Math.sin(((angle + 270) * Math.PI) / 180) * r,
+                      Math.sin(((angle + 360) * Math.PI) / 180) * r,
+                    ],
+                  }}
+                  transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+                  transformTemplate={({ x, y }) =>
+                    `translate(calc(${x} + -50%), calc(${y} + -50%))`
+                  }
+                >
+                  <Icon size={13} />
+                  <span>{label}</span>
+                </motion.div>
+              );
+            })}
 
-              {/* Floating Element 3 */}
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 2 }}
-                className="absolute -top-[5%] right-[10%] w-16 h-16 glass rounded-2xl flex items-center justify-center z-10"
-              >
-                <ShieldCheck size={24} className="text-violet-primary dark:text-violet-accent" />
-              </motion.div>
+            {/* Inner orbit — 3 service pills, counter-clockwise */}
+            {[
+              { label: 'Analytics',  Icon: BarChart3,   color: '#60a5fa', bg: 'rgba(96,165,250,0.15)',  angle: 60  },
+              { label: 'Cloud',      Icon: ShieldCheck, color: '#fbbf24', bg: 'rgba(251,191,36,0.15)',  angle: 180 },
+              { label: 'Security',   Icon: ShieldCheck, color: '#c084fc', bg: 'rgba(192,132,252,0.15)', angle: 300 },
+            ].map(({ label, Icon, color, bg, angle }) => {
+              const r = 110;
+              return (
+                <motion.div
+                  key={label}
+                  className="absolute flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap backdrop-blur-sm"
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    background: bg,
+                    border: `1px solid ${color}55`,
+                    color,
+                    boxShadow: `0 0 10px 0px ${color}33`,
+                  }}
+                  animate={{
+                    x: [
+                      Math.cos(((angle + 0)   * Math.PI) / 180) * r,
+                      Math.cos(((angle - 90)  * Math.PI) / 180) * r,
+                      Math.cos(((angle - 180) * Math.PI) / 180) * r,
+                      Math.cos(((angle - 270) * Math.PI) / 180) * r,
+                      Math.cos(((angle - 360) * Math.PI) / 180) * r,
+                    ],
+                    y: [
+                      Math.sin(((angle + 0)   * Math.PI) / 180) * r,
+                      Math.sin(((angle - 90)  * Math.PI) / 180) * r,
+                      Math.sin(((angle - 180) * Math.PI) / 180) * r,
+                      Math.sin(((angle - 270) * Math.PI) / 180) * r,
+                      Math.sin(((angle - 360) * Math.PI) / 180) * r,
+                    ],
+                  }}
+                  transition={{ repeat: Infinity, duration: 14, ease: 'linear' }}
+                  transformTemplate={({ x, y }) =>
+                    `translate(calc(${x} + -50%), calc(${y} + -50%))`
+                  }
+                >
+                  <Icon size={12} />
+                  <span>{label}</span>
+                </motion.div>
+              );
+            })}
 
-              {/* Floating Element 4 */}
-              <motion.div
-                animate={{ y: [0, -15, 0], x: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-[5%] left-[0%] w-32 h-28 glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 z-10"
-              >
-                <div className="p-2 bg-blue-500/10 text-blue-500 rounded-xl">
-                  <BarChart3 size={24} />
-                </div>
-                <p className="font-semibold text-xs text-slate-900 dark:text-white">Analytics</p>
-              </motion.div>
-
-              {/* Floating Element 5 */}
-              <motion.div
-                animate={{ y: [0, 25, 0], x: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 2.5 }}
-                className="absolute top-[35%] -right-[15%] w-24 h-24 glass rounded-2xl p-3 flex flex-col items-center justify-center gap-2 z-20"
-              >
-                <div className="p-2 bg-pink-500/10 text-pink-500 rounded-xl">
-                  <Smartphone size={20} />
-                </div>
-                <p className="font-semibold text-[10px] text-slate-900 dark:text-white">Mobile</p>
-              </motion.div>
-
-              {/* Floating Element 6 */}
-              <motion.div
-                animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.8 }}
-                className="absolute -bottom-[5%] right-[30%] w-14 h-14 glass rounded-xl flex items-center justify-center z-30 shadow-lg"
-              >
-                <Cpu size={20} className="text-violet-primary dark:text-violet-accent" />
-              </motion.div>
-
-            </div>
+            {/* Logo core */}
+            <motion.img
+              src={logoSrc}
+              alt="Viyan Logo"
+              animate={{ scale: [1, 1.06, 1] }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+              className="relative z-20 w-36 h-36 sm:w-44 sm:h-44 object-contain"
+              style={{ filter: 'drop-shadow(0 0 24px rgba(139,92,246,0.6))' }}
+            />
           </motion.div>
         </div>
       </div>
