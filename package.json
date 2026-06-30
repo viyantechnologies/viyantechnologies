@@ -2,7 +2,7 @@
   "name": "viyan-website",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://dhivakar2005.github.io/viyan-website/",
+  "homepage": "https://github.com/viyantechnologies/viyantechnologies.git",
   "type": "module",
   "scripts": {
     "dev": "vite",

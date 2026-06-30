@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: <Phone className="w-6 h-6" />,
     title: 'Call Us',
-    lines: ['+91 98765 43210', 'Mon–Fri, 9am–6pm IST'],
+    lines: ['+91 80987 52267'],
   },
 ];
 
@@ -153,11 +153,10 @@ const Contact = () => {
                       id="name"
                       type="text"
                       {...register('name', { required: 'Name is required' })}
-                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow ${
-                        errors.name
-                          ? 'border-red-400 dark:border-red-500'
-                          : 'border-slate-300 dark:border-slate-700'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow ${errors.name
+                        ? 'border-red-400 dark:border-red-500'
+                        : 'border-slate-300 dark:border-slate-700'
+                        }`}
                       placeholder="John Doe"
                     />
                     {errors.name && (
@@ -178,11 +177,10 @@ const Contact = () => {
                         required: 'Email is required',
                         pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' },
                       })}
-                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow ${
-                        errors.email
-                          ? 'border-red-400 dark:border-red-500'
-                          : 'border-slate-300 dark:border-slate-700'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow ${errors.email
+                        ? 'border-red-400 dark:border-red-500'
+                        : 'border-slate-300 dark:border-slate-700'
+                        }`}
                       placeholder="john@example.com"
                     />
                     {errors.email && (
@@ -215,11 +213,10 @@ const Contact = () => {
                     <select
                       id="service"
                       {...register('service', { required: 'Please select a service' })}
-                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow appearance-none cursor-pointer ${
-                        errors.service
-                          ? 'border-red-400 dark:border-red-500'
-                          : 'border-slate-300 dark:border-slate-700'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow appearance-none cursor-pointer ${errors.service
+                        ? 'border-red-400 dark:border-red-500'
+                        : 'border-slate-300 dark:border-slate-700'
+                        }`}
                     >
                       <option value="">Select a service...</option>
                       <option value="Website Development">Website Development</option>
@@ -244,11 +241,10 @@ const Contact = () => {
                       Message <span className="text-red-500">*</span>
                     </label>
                     <span
-                      className={`text-xs ${
-                        messageValue.length > MAX_MESSAGE_LENGTH * 0.9
-                          ? 'text-amber-500'
-                          : 'text-slate-400 dark:text-slate-500'
-                      }`}
+                      className={`text-xs ${messageValue.length > MAX_MESSAGE_LENGTH * 0.9
+                        ? 'text-amber-500'
+                        : 'text-slate-400 dark:text-slate-500'
+                        }`}
                     >
                       {messageValue.length}/{MAX_MESSAGE_LENGTH}
                     </span>
@@ -261,11 +257,10 @@ const Contact = () => {
                       required: 'Message is required',
                       minLength: { value: 20, message: 'Please write at least 20 characters' },
                     })}
-                    className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow resize-none ${
-                      errors.message
-                        ? 'border-red-400 dark:border-red-500'
-                        : 'border-slate-300 dark:border-slate-700'
-                    }`}
+                    className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow resize-none ${errors.message
+                      ? 'border-red-400 dark:border-red-500'
+                      : 'border-slate-300 dark:border-slate-700'
+                      }`}
                     placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                   />
                   {errors.message && (

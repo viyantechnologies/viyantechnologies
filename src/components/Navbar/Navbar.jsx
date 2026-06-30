@@ -8,7 +8,6 @@ import { getAssetPath } from '../../utils/assetHelper';
 const navLinks = [
   { name: 'HOME', href: '/#home' },
   { name: 'SERVICES', href: '/#services' },
-  { name: 'SOLUTIONS', href: '/#solutions' },
   { name: 'PORTFOLIO', href: '/#portfolio' },
   { name: 'BLOG', href: '/blog' },
   { name: 'ABOUT', href: '/about' },
@@ -72,10 +71,10 @@ const Navbar = () => {
                 onClick={(e) => handleNavLinkClick(e, '/#home')}
                 className="flex items-center gap-2 xs:gap-3 group"
               >
-                <img 
-                  src={getAssetPath('/logo.png')} 
-                  alt="Viyan Logo" 
-                  className="h-10 xs:h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300" 
+                <img
+                  src={getAssetPath('/logo.png')}
+                  alt="Viyan Logo"
+                  className="h-10 xs:h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="flex flex-col justify-center items-center w-fit">
                   <span className="text-xl xs:text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.25em] xs:tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.125em] xs:translate-x-[0.15em] md:translate-x-[0.2em] transition-all">
@@ -189,24 +188,24 @@ const Navbar = () => {
                   Connect with us
                 </p>
                 <div className="flex gap-3 mb-6">
-                  <a 
-                    href="mailto:viyantechnologiesteam@gmail.com" 
+                  <a
+                    href="mailto:viyantechnologiesteam@gmail.com"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   >
                     <Mail size={18} />
                   </a>
-                  <a 
-                    href="https://viyan.in" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://viyan.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   >
                     <Globe size={18} />
                   </a>
-                  <a 
-                    href="https://wa.me/919999999999" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://wa.me/919999999999"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   >
                     <MessageCircle size={18} />
