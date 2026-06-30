@@ -9,52 +9,52 @@ const projects = [
     industry: 'Educational',
     image: 'public/collegefront.jpg',
     Link:'www.aurcc.ac.in',
-    tech: ['React', 'Node.js', 'AI Predictions'],
+    tech: ['React', 'Node.js', 'Tailwind CSS'],
   },
     {
     name: 'AI-Powered Farmer Query App',
     industry: 'Agri-Tech',
     image: 'public/Farmer Query App.jpeg',
-    tech: ['Vite', 'React', 'Framer Motion'],
+    tech: ['Flutter', 'Groq API', 'RAG'],
   },
     {
     name: 'AI-Powered Healthcare Receptionist',
     industry: 'Healthcare',
     image: 'public/Receptionist.jpeg',
-    tech: ['React Native', 'OpenAI API', 'Python'],
+    tech: ['Python', 'Twilio', 'Deepgram API'],
   },
     {
     name: 'AI-Powered Stock Screener and Advisory Platform',
     industry: 'FinTech',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
-    tech: ['React', 'Node.js', 'AI Predictions'],
+    tech: ['PostgreSQL', 'Flask', 'Yahoo Finance'],
   },
     {
     name: 'AI-Powered Farmer Crop Disease Prediction and Query Support',
     industry: 'Agri-Tech',
     image: 'public/Farmer Crop Disease.jpeg',
-    tech: ['React', 'Node.js', 'AI Predictions'],
+    tech: ['React', 'Ollama', 'Gemini API'],
   },
 
   {
     name: 'AI-Powered Driver Safety System',
     industry: 'Transportation',
     image: 'public/Driver Safety.jpeg',
-    tech: ['Next.js', 'Tailwind CSS', 'Stripe'],
+    tech: ['Python', 'Google Map API', 'Flask'],
   },
 
   {
     name: 'Movie Ticket Booking Platform',
     industry: 'Entertainment',
     image: 'public/Movie Ticket.jpeg',
-    tech: ['Vue.js', 'Firebase', 'Mapbox'],
+    tech: ['Next.js', 'MongoDB', 'Stripe'],
   },
 
   {
     name: 'Road Accident Prediction System',
     industry: 'Transportation',
     image: 'public/Accident Prevention.jpeg',
-    tech: ['Angular', 'Spring Boot', 'AWS'],
+    tech: ['Gemini API', 'SQLite', 'Flask'],
   }
 ];
 
