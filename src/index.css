@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-violet-primary: #7C3AED;
+  --color-violet-secondary: #8B5CF6;
+  --color-violet-accent: #A78BFA;
+  --color-violet-light: #DDD6FE;
+  --color-dark-bg: #0F172A;
+  --color-light-bg: #FFFFFF;
+  --color-dark-text: #FFFFFF;
+  --color-light-text: #0F172A;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  .dark body {
+    @apply bg-slate-900 text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50;
+  }
+  
+  .dark .glass {
+    @apply bg-slate-900/50 backdrop-blur-md border border-slate-700/50 shadow-2xl shadow-black/50;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-primary to-violet-accent;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-violet-primary to-violet-secondary;
+  }
+}
+
+/* Blog Prose Styling */
+.prose {
+  line-height: 1.8;
+  color: #334155; /* slate-700 */
+}
+
+.dark .prose {
+  color: #cbd5e1; /* slate-300 */
+}
+
+.prose p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem; /* 18px */
+}
+
+.prose h2 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.dark .prose h2 {
+  color: #f8fafc; /* slate-50 */
+}
+
+.prose h3 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #0f172a; /* slate-900 */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.dark .prose h3 {
+  color: #f8fafc; /* slate-50 */
+}
+
+.prose ul {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.7;
+}
+
+.prose blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: #4c1d95; /* violet-900 */
+  border-left-width: 4px;
+  border-left-color: #7c3aed; /* violet-primary */
+  background-color: #f5f3ff; /* violet-50 */
+  padding: 1.5rem 1.75rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dark .prose blockquote {
+  color: #ddd6fe; /* violet-200 */
+  background-color: rgba(124, 58, 237, 0.08);
+  border-left-color: #a78bfa; /* violet-accent */
+}
+
+.prose strong {
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+}
+
+.dark .prose strong {
+  color: #ffffff;
+}
