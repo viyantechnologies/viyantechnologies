@@ -74,7 +74,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.25, ease: 'easeOut' }}
-            className="relative h-[420px] sm:h-[480px] lg:h-[560px] flex items-center justify-center scale-105 sm:scale-110 lg:scale-120 xl:scale-125 origin-center transition-transform duration-300 w-full"
+            className="relative h-[280px] sm:h-[320px] lg:h-[400px] flex items-center justify-center scale-[0.55] sm:scale-[0.65] lg:scale-[0.75] xl:scale-[0.80] origin-center transition-transform duration-300 w-full"
           >
             {/* Ambient radial glow */}
             <div className="absolute w-80 h-80 rounded-full bg-violet-600/30 blur-[90px] animate-pulse" style={{ animationDuration: '3s' }} />

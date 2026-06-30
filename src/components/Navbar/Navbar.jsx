@@ -5,6 +5,44 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import { getAssetPath } from '../../utils/assetHelper';
 
+const LinkedInIcon = ({ size = 18, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 18, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
 const navLinks = [
   { name: 'HOME', href: '/#home' },
   { name: 'SERVICES', href: '/#services' },
@@ -58,8 +96,8 @@ const Navbar = () => {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800/80 py-2.5'
-            : 'bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800/55 py-4'
+            ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800/80 py-2'
+            : 'bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800/55 py-3'
         )}
       >
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -74,35 +112,69 @@ const Navbar = () => {
                 <img
                   src={getAssetPath('/logo.png')}
                   alt="Viyan Logo"
-                  className="h-10 xs:h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300"
+                  className="h-8 xs:h-9 md:h-10 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="flex flex-col justify-center items-center w-fit">
-                  <span className="text-xl xs:text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.25em] xs:tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.125em] xs:translate-x-[0.15em] md:translate-x-[0.2em] transition-all">
+                  <span className="text-lg xs:text-xl md:text-2xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.25em] xs:tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.125em] xs:translate-x-[0.15em] md:translate-x-[0.2em] transition-all">
                     VIYAN
                   </span>
                   <div className="flex items-center justify-center gap-1 md:gap-2 mt-1 w-full">
-                    <div className="h-[1.5px] w-1.5 xs:w-2 md:w-3 bg-yellow-500 rounded-full"></div>
-                    <span className="text-[6px] xs:text-[7px] md:text-[8px] font-bold tracking-[0.35em] xs:tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.175em] xs:translate-x-[0.25em] transition-all">
+                    <div className="h-[1.5px] w-1 xs:w-1.5 md:w-2 bg-yellow-500 rounded-full"></div>
+                    <span className="text-[5px] xs:text-[6px] md:text-[7px] font-bold tracking-[0.35em] xs:tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.175em] xs:translate-x-[0.25em] transition-all">
                       technologies
                     </span>
-                    <div className="h-[1.5px] w-1.5 xs:w-2 md:w-3 bg-yellow-500 rounded-full"></div>
+                    <div className="h-[1.5px] w-1 xs:w-1.5 md:w-2 bg-yellow-500 rounded-full"></div>
                   </div>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={(e) => handleNavLinkClick(e, link.href)}
-                  className="text-sm lg:text-base font-semibold text-slate-700 hover:text-violet-primary dark:text-slate-200 dark:hover:text-violet-light transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-violet-primary after:transition-all hover:after:w-full"
+            <div className="hidden md:flex items-center space-x-6">
+              <div className="flex items-center space-x-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={(e) => handleNavLinkClick(e, link.href)}
+                    className="text-xs lg:text-sm font-semibold text-slate-700 hover:text-violet-primary dark:text-slate-200 dark:hover:text-violet-light transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-violet-primary after:transition-all hover:after:w-full"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Divider */}
+              <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800" />
+
+              {/* Social Links */}
+              <div className="flex items-center space-x-2">
+                <a
+                  href="mailto:viyantechnologiesteam@gmail.com"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="Mail"
                 >
-                  {link.name}
-                </Link>
-              ))}
+                  <Mail size={14} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/viyan-technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="LinkedIn"
+                >
+                  <LinkedInIcon size={14} />
+                </a>
+                <a
+                  href="https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="Instagram"
+                >
+                  <InstagramIcon size={14} />
+                </a>
+              </div>
             </div>
 
             {/* Mobile menu button */}

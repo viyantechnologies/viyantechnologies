@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Briefcase, Code, Camera, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getAssetPath } from '../../utils/assetHelper';
 
@@ -49,23 +49,9 @@ const Footer = () => {
                 </div>
               </div>
             </Link>
-            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
               Empowering businesses with modern technology, AI solutions, and digital growth strategies. To become the most trusted digital transformation partner for businesses worldwide.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-violet-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300" aria-label="Social 1">
-                <MessageCircle size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-violet-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300" aria-label="Social 2">
-                <Briefcase size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-violet-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300" aria-label="Social 3">
-                <Code size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-violet-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300" aria-label="Social 4">
-                <Camera size={18} />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
