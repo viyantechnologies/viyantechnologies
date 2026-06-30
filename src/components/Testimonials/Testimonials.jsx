@@ -4,45 +4,33 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Jenkins',
-    company: 'TechFlow Solutions',
-    image: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
-    review: 'Viyan completely transformed our digital presence. The new web app they built is incredibly fast, and their AI integration saved our support team hundreds of hours.',
+    name: 'DR.J. Preethi',
+    company: 'Professor, Anna University',
+    review: 'The website development team has built a modern, responsive, and user-friendly platform from the ground up with exceptional dedication and technical expertise. Their commitment to quality, innovation, and attention to detail has resulted in a reliable website that effectively showcases the institution and serves its users efficiently.',
     rating: 5,
   },
   {
-    name: 'Michael Chen',
-    company: 'Global Retail',
-    image: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
-    review: 'The e-commerce platform delivered by Viyan exceeded our expectations. Our conversion rates doubled within the first month of launch. Highly recommended!',
+    name: 'Mr.S. Benedict',
+    company: 'System Administrator, Anna University',
+    review: 'The newly developed website is well-organized, visually appealing, and easy to navigate. The development team has done an excellent job in creating a professional platform that enhances the overall user experience.',
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
-    company: 'HealthPlus Clinics',
-    image: 'https://i.pravatar.cc/150?u=a04258114e29026702d',
-    review: 'Outstanding service! They built a custom patient portal with AI scheduling that has dramatically improved our operational efficiency and patient satisfaction.',
+    name: 'Mr.R. Karthik',
+    company: 'Student, Anna University',
+    review: 'I appreciate the effort and creativity invested in developing this website from scratch. Its responsive design and intuitive interface make accessing information quick and convenient.',
     rating: 5,
   },
   {
-    name: 'David Thompson',
-    company: 'Thompson Logistics',
-    image: 'https://i.pravatar.cc/150?u=a048581f4e29026701d',
-    review: 'Viyan is a strategic partner. Their development team is top-notch, and their understanding of modern web architecture is evident in the scalable system they built for us.',
+    name: 'Ms.S. Anitha',
+    company: 'Student, Anna University',
+    review: 'The website reflects a high standard of professionalism and technical excellence. Kudos to the development team for delivering a seamless, fast, and informative platform.',
     rating: 5,
   },
   {
-    name: 'Lisa Wong',
-    company: 'FinServe Group',
-    image: 'https://i.pravatar.cc/150?u=a04258a2462d826712d',
-    review: 'The dashboard they designed is beautiful and highly functional. Their team is responsive, professional, and delivers on time and within budget.',
-    rating: 5,
-  },
-  {
-    name: 'James Wilson',
-    company: 'Startup Hub',
-    image: 'https://i.pravatar.cc/150?u=a042581f4e29026703d',
-    review: 'From the initial discovery phase to launch, the experience was seamless. Their SEO strategy also put us on the first page for our main keywords.',
+    name: 'Mr.D. Arjun',
+    company: 'Student, Anna University',
+    review: "The attention to detail and user-friendly design make this website stand out. The development team's hard work and dedication are clearly visible in every aspect of the platform.",
     rating: 5,
   }
 ];
@@ -124,13 +112,9 @@ const Testimonials = () => {
                   </p>
                   
                   <div className="flex items-center justify-center gap-4">
-                    <img 
-                      src={testimonials[currentIndex].image} 
-                      alt={testimonials[currentIndex].name} 
-                      className="w-14 h-14 rounded-full object-cover border-2 border-violet-primary"
-                    />
+                
                     <div className="text-left">
-                      <h4 className="font-bold text-slate-900 dark:text-white">
+                      <h4 className="font-bold text-slate-900 dark:text-white text-center">
                         {testimonials[currentIndex].name}
                       </h4>
                       <p className="text-sm text-slate-500 dark:text-slate-400">

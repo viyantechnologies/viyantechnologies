@@ -145,13 +145,13 @@ const Navbar = () => {
               </div>
 
               {/* Divider */}
-              <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800" />
+              <div className="h-6 w-[1px] bg-slate-200 dark:white" />
 
               {/* Social Links */}
               <div className="flex items-center space-x-2">
                 <a
                   href="mailto:viyantechnologiesteam@gmail.com"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   title="Mail"
                 >
                   <Mail size={14} />
@@ -160,7 +160,7 @@ const Navbar = () => {
                   href="https://www.linkedin.com/in/viyan-technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   title="LinkedIn"
                 >
                   <LinkedInIcon size={14} />
@@ -169,7 +169,7 @@ const Navbar = () => {
                   href="https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
                   title="Instagram"
                 >
                   <InstagramIcon size={14} />
