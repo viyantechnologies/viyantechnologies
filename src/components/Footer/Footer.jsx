@@ -23,22 +23,29 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 py-10 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link 
               to="/#home" 
               onClick={(e) => handleFooterLinkClick(e, '/#home')}
-              className="flex items-center gap-3 mb-6 group"
+              className="flex items-center gap-2 xs:gap-3 mb-6 group"
             >
-              <img src={getAssetPath('/logo.png')} alt="Viyan Logo" className="h-16 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
+              <img 
+                src={getAssetPath('/logo.png')} 
+                alt="Viyan Logo" 
+                className="h-12 xs:h-14 md:h-16 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300" 
+              />
               <div className="flex flex-col justify-center items-center w-fit">
-                <span className="text-3xl md:text-4xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
-                <div className="flex items-center justify-center gap-2 mt-2 w-full">
-                  <div className="h-[2px] w-3 md:w-4 bg-yellow-500 rounded-full"></div>
-                  <span className="text-[9px] md:text-[10px] font-bold tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.25em]">technologies</span>
-                  <div className="h-[2px] w-3 md:w-4 bg-yellow-500 rounded-full"></div>
+                <span className="text-2xl xs:text-3xl md:text-4xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.25em] xs:tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.125em] xs:translate-x-[0.15em] md:translate-x-[0.2em] transition-all">
+                  VIYAN
+                </span>
+                <div className="flex items-center justify-center gap-1.5 xs:gap-2 mt-1.5 md:mt-2 w-full">
+                  <div className="h-[1.5px] w-1.5 xs:w-3 md:w-4 bg-yellow-500 rounded-full"></div>
+                  <span className="text-[7px] xs:text-[9px] md:text-[10px] font-bold tracking-[0.35em] xs:tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.175em] xs:translate-x-[0.25em] transition-all">
+                    technologies
+                  </span>
+                  <div className="h-[1.5px] w-1.5 xs:w-3 md:w-4 bg-yellow-500 rounded-full"></div>
                 </div>
               </div>
             </Link>
@@ -62,7 +69,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="col-span-1">
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm">
               <li><Link to="/#home" onClick={(e) => handleFooterLinkClick(e, '/#home')} className="hover:text-violet-primary transition-colors">Home</Link></li>
@@ -74,7 +81,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="col-span-1">
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Services</h4>
             <ul className="space-y-4 text-sm">
               <li><Link to="/#services" onClick={(e) => handleFooterLinkClick(e, '/#services')} className="hover:text-violet-primary transition-colors">Website Development</Link></li>
@@ -86,7 +93,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Newsletter</h4>
             <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">Subscribe to our newsletter for the latest tech insights and company updates.</p>
             <form className="relative">

@@ -77,8 +77,8 @@ const PrivacyPolicy = () => {
             </h2>
             <p>
               For any questions regarding your data, contact us at:{" "}
-              <a href="mailto:info@viyan.in" className="text-violet-primary dark:text-violet-accent hover:underline">
-                info@viyan.in
+              <a href="mailto:viyantechnologiesteam@gmail.com" className="text-violet-primary dark:text-violet-accent hover:underline">
+                viyantechnologiesteam@gmail.com
               </a>
             </p>
           </section>

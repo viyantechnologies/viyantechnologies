@@ -81,8 +81,8 @@ const TermsOfService = () => {
             </h2>
             <p>
               For legal inquiries, contact us at:{" "}
-              <a href="mailto:info@viyan.in" className="text-violet-primary dark:text-violet-accent hover:underline">
-                info@viyan.in
+              <a href="mailto:viyantechnologiesteam@gmail.com" className="text-violet-primary dark:text-violet-accent hover:underline">
+                viyantechnologiesteam@gmail.com
               </a>
             </p>
           </section>

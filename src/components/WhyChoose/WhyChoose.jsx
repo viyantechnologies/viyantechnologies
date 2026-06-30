@@ -31,7 +31,7 @@ const reasons = [
 ];
 
 const allNodes = [
-  { isStart: true, title: <>Client</>, icon: <div className="w-3 h-3 bg-white rounded-full"></div>, color: 'fuchsia-500' },
+  { isStart: true, title: <>Client</>, icon: <div className="w-3 h-3 bg-white rounded-full"></div>, color: 'violet-500' },
   ...reasons.map(r => ({ ...r, color: 'violet-500' })),
   { isEnd: true, title: <>Viyan<br/>Technologies</>, icon: <img src={getAssetPath('/logo.png')} className="w-8 h-8 mix-blend-screen brightness-0 invert" alt="Viyan" />, color: 'violet-primary' }
 ];
@@ -53,7 +53,7 @@ const WhyChoose = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold tracking-wider text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-wider text-slate-900 dark:text-white mb-6">
               Why Choose Viyan
             </h2>
             <h3 className="text-xl md:text-xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
@@ -65,36 +65,32 @@ const WhyChoose = () => {
           </motion.div>
         </div>
 
-        {/* Roadmap Grid Section */}
+        {/* Roadmap Grid Section (Responsive mobile 2-cols and desktop 4-cols) */}
         <div className="relative w-full max-w-5xl mx-auto">
-          {/* Mobile connecting line (Hidden on desktop) */}
-          <div className="block md:hidden absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-violet-primary via-violet-400 to-fuchsia-500 rounded-full opacity-40 -translate-x-1/2 z-0 border-l-[2px] border-dashed border-transparent"></div>
-
-          {/* Grid of Nodes */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-y-32 gap-x-6 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-20 md:gap-y-32 gap-x-4 md:gap-x-6 relative z-10">
             {allNodes.map((node, index) => {
               
-              // Define static CSS classes for ordering so Tailwind can compile them
+              // Dynamic Grid Order
               const orderClasses = [
                 'order-1 md:order-1',
                 'order-2 md:order-2',
-                'order-3 md:order-3',
-                'order-4 md:order-4',
+                'order-4 md:order-3',
+                'order-3 md:order-4',
                 'order-5 md:order-8',
                 'order-6 md:order-7',
-                'order-7 md:order-6',
-                'order-8 md:order-5'
+                'order-8 md:order-6',
+                'order-7 md:order-5'
               ];
               const orderClass = orderClasses[index];
               
               const isUp = [1, 3, 4, 6].includes(index);
               const staggerClass = index === 0 
-                ? 'md:translate-y-5' 
+                ? 'translate-y-2 md:translate-y-5' 
                 : index === 7 
-                  ? 'md:translate-y-8'
+                  ? 'translate-y-3 md:translate-y-8'
                   : isUp 
-                    ? 'md:-translate-y-24' 
-                    : 'md:translate-y-24';
+                    ? 'translate-y-0 md:-translate-y-24' 
+                    : 'translate-y-4 md:translate-y-24';
               
               return (
                 <motion.div
@@ -106,27 +102,68 @@ const WhyChoose = () => {
                   className={`h-full relative group ${orderClass}`}
                 >
 
-                  {/* Desktop Connectors */}
+                  {/* Mobile Snake Connectors (Hidden on desktop) */}
+                  <div className="block md:hidden absolute inset-0 pointer-events-none z-0">
+                    {/* Node 0 (Client) */}
+                    {index === 0 && (
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                    )}
+                    {/* Node 1 */}
+                    {index === 1 && (
+                      <>
+                        <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      </>
+                    )}
+                    {/* Node 2 */}
+                    {index === 2 && (
+                      <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                    )}
+                    {/* Node 3 */}
+                    {index === 3 && (
+                      <>
+                        <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      </>
+                    )}
+                    {/* Node 4 */}
+                    {index === 4 && (
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                    )}
+                    {/* Node 5 */}
+                    {index === 5 && (
+                      <>
+                        <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      </>
+                    )}
+                    {/* Node 6 */}
+                    {index === 6 && (
+                      <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                    )}
+                    {/* Node 7 (Viyan End) */}
+                    {index === 7 && (
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                    )}
+                  </div>
+
+                  {/* Desktop Connectors (Hidden on mobile) */}
                   <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
-                    
                     {/* Node 0 starts from center */}
                     {index === 0 && (
                       <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
-                    
                     {/* Node 1, 2 span fully across */}
                     {(index === 1 || index === 2) && (
                       <div className="absolute top-1/2 left-0 w-[calc(100%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
-                    
-                    {/* Row 1 End (Node 3) -> line to center, then top half of curve */}
+                    {/* Row 1 End (Node 3) -> curve */}
                     {index === 3 && (
                       <>
                         <div className="absolute top-1/2 left-0 w-1/2 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-1/2 left-1/2 w-[calc(50%+2.5rem)] h-[calc(50%+4rem)] border-t-[2px] border-r-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-tr-[4rem]" />
                       </>
                     )}
-
                     {/* Node 4 receives the curve (bottom half), and goes left */}
                     {index === 4 && (
                       <>
@@ -134,17 +171,14 @@ const WhyChoose = () => {
                         <div className="absolute top-1/2 right-1/2 w-[calc(50%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
-
                     {/* Node 5, 6 draw across whole card and left gap */}
                     {(index === 5 || index === 6) && (
                       <div className="absolute top-1/2 right-0 w-[calc(100%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
-
                     {/* Node 7 (Row 2 End) -> line ends at center */}
                     {index === 7 && (
                       <div className="absolute top-1/2 right-0 w-1/2 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
-
                     {/* Vertical branches and nodes for staggered items */}
                     {index !== 0 && index !== 7 && (
                       <>
@@ -154,44 +188,43 @@ const WhyChoose = () => {
                     )}
                   </div>
 
-                  {/* Stagger Wrapper for Timeline Effect */}
+                  {/* Wrapper for Timeline Effect */}
                   <div className={`w-full h-full flex items-center justify-center transition-transform duration-300 ${staggerClass}`}>
-                    <div className={`w-full h-auto p-4 sm:p-6 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-2 relative z-10 gap-4 sm:gap-5 ${isUp ? 'flex-col-reverse' : 'flex-col'}`}>
+                    <div className="w-full h-auto p-2 sm:p-4 md:p-6 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-2 relative z-10 gap-3 md:gap-5 flex-col text-center">
                       
-                      {/* Node Circle */}
-                      {node.isStart ? (
-                        <div className="w-8 h-8 bg-fuchsia-500 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(240,46,194,0.6)] border-2 border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
-                          <span className="absolute -inset-1.5 rounded-full bg-fuchsia-500/45 animate-pulse blur-[1px]" />
-                          <span className="absolute inset-0 rounded-full bg-fuchsia-500/60 animate-ping" />
-                          <div className="relative z-10 w-3 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,1)]" />
-                        </div>
-                      ) : node.isEnd ? (
-                        <div className="w-14 h-14 bg-violet-600 text-white rounded-full rounded-br-none rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.15)] border-[3px] border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
-                          <div className="-rotate-45 flex items-center justify-center w-full h-full">
-                            {node.icon}
+                      {/* Node Circle Container */}
+                      <div className="z-20 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 shrink-0">
+                        {node.isStart ? (
+                          <div className="w-7 h-7 md:w-8 md:h-8 bg-fuchsia-500 text-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(240,46,194,0.5)] border-2 border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative">
+                            <span className="absolute -inset-1.5 rounded-full bg-fuchsia-500/45 animate-pulse blur-[1px]" />
+                            <span className="absolute inset-0 rounded-full bg-fuchsia-500/60 animate-ping" />
+                            <div className="relative z-10 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,1)]" />
                           </div>
-                        </div>
-                      ) : (
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center text-${node.color} transition-transform duration-300 group-hover:scale-110 shadow-inner border border-white/50 dark:border-white/10`}>
-                          {node.icon}
-                        </div>
-                      )}
+                        ) : node.isEnd ? (
+                          <div className="w-12 h-12 md:w-14 md:h-14 bg-violet-600 text-white rounded-full rounded-br-none rotate-45 flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.12)] border-[3px] border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110">
+                            <div className="-rotate-45 flex items-center justify-center w-full h-full">
+                              {node.icon}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="w-11 h-11 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center text-violet-primary dark:text-violet-accent transition-transform duration-300 group-hover:scale-110 shadow-inner border border-white/50 dark:border-white/10">
+                            {React.cloneElement(node.icon, { className: 'w-5 h-5 md:w-6 md:h-6' })}
+                          </div>
+                        )}
+                      </div>
                       
                       {/* Node Title */}
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white text-center leading-tight">
+                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-slate-900 dark:text-white text-center leading-tight">
                         {node.title}
                       </h4>
                     </div>
                   </div>
-
-                  {/* Desktop Directional Arrows (Optional, absolute positioned between nodes) */}
-                  {/* We omit them here since the SVG dashed line perfectly illustrates the path */}
                 </motion.div>
               );
             })}
           </div>
-
         </div>
+
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import { getAssetPath } from '../../utils/assetHelper';
 
@@ -26,6 +27,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const handleNavLinkClick = (e, href) => {
     if (href.startsWith('/#')) {
       const id = href.replace('/#', '');
@@ -41,85 +54,173 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-white dark:bg-slate-900 shadow-md border-b border-slate-200 dark:border-slate-800 py-2'
-          : 'bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 py-4'
-      )}
-    >
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link
-              to="/#home"
-              onClick={(e) => handleNavLinkClick(e, '/#home')}
-              className="flex items-center gap-3 group"
+    <>
+      <nav
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          isScrolled
+            ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800/80 py-2.5'
+            : 'bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800/55 py-4'
+        )}
+      >
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex justify-between items-center text-slate-900 dark:text-white">
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
+              <Link
+                to="/#home"
+                onClick={(e) => handleNavLinkClick(e, '/#home')}
+                className="flex items-center gap-2 xs:gap-3 group"
+              >
+                <img 
+                  src={getAssetPath('/logo.png')} 
+                  alt="Viyan Logo" 
+                  className="h-10 xs:h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-300" 
+                />
+                <div className="flex flex-col justify-center items-center w-fit">
+                  <span className="text-xl xs:text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.25em] xs:tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.125em] xs:translate-x-[0.15em] md:translate-x-[0.2em] transition-all">
+                    VIYAN
+                  </span>
+                  <div className="flex items-center justify-center gap-1 md:gap-2 mt-1 w-full">
+                    <div className="h-[1.5px] w-1.5 xs:w-2 md:w-3 bg-yellow-500 rounded-full"></div>
+                    <span className="text-[6px] xs:text-[7px] md:text-[8px] font-bold tracking-[0.35em] xs:tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.175em] xs:translate-x-[0.25em] transition-all">
+                      technologies
+                    </span>
+                    <div className="h-[1.5px] w-1.5 xs:w-2 md:w-3 bg-yellow-500 rounded-full"></div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={(e) => handleNavLinkClick(e, link.href)}
+                  className="text-sm lg:text-base font-semibold text-slate-700 hover:text-violet-primary dark:text-slate-200 dark:hover:text-violet-light transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-violet-primary after:transition-all hover:after:w-full"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex items-center md:hidden">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="text-slate-600 hover:text-violet-primary dark:text-slate-350 p-2 focus:outline-none"
+                aria-label="Open menu"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Modern Slide-over Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 md:hidden"
+            />
+
+            {/* Drawer Sidebar */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[300px] xs:w-[320px] bg-white dark:bg-slate-950 shadow-2xl z-55 md:hidden flex flex-col justify-between p-6 border-l border-slate-200/80 dark:border-slate-800/80"
             >
-              <img src={getAssetPath('/logo.png')} alt="Viyan Logo" className="h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
-              <div className="flex flex-col justify-center items-center w-fit">
-                <span className="text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
-                <div className="flex items-center justify-center gap-1 md:gap-2 mt-1 w-full">
-                  <div className="h-[2px] w-2 md:w-3 bg-yellow-500 rounded-full"></div>
-                  <span className="text-[7px] md:text-[8px] font-bold tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.25em]">technologies</span>
-                  <div className="h-[2px] w-2 md:w-3 bg-yellow-500 rounded-full"></div>
+              <div>
+                {/* Header inside Drawer */}
+                <div className="flex justify-between items-center mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
+                  <div className="flex items-center gap-2">
+                    <img src={getAssetPath('/logo.png')} alt="Viyan" className="h-9 w-auto mix-blend-screen" />
+                    <span className="text-lg font-bold font-sans tracking-[0.2em] text-slate-900 dark:text-white uppercase translate-x-[0.1em]">
+                      VIYAN
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-1.5 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+
+                {/* Nav Links */}
+                <div className="flex flex-col space-y-2">
+                  {navLinks.map((link, idx) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 }}
+                    >
+                      <Link
+                        to={link.href}
+                        onClick={(e) => {
+                          setIsOpen(false);
+                          handleNavLinkClick(e, link.href);
+                        }}
+                        className="block px-4 py-3.5 text-base font-semibold text-slate-800 dark:text-slate-100 hover:text-violet-primary dark:hover:text-violet-accent hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-xl transition-all"
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </Link>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={(e) => handleNavLinkClick(e, link.href)}
-                className="text-base font-semibold text-slate-900 hover:text-violet-primary dark:text-white dark:hover:text-violet-light transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            
-
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex items-center md:hidden gap-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-violet-primary dark:text-slate-300 p-2"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 absolute top-full left-0 right-0 border-b border-slate-200 dark:border-slate-800 shadow-lg">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={(e) => {
-                  setIsOpen(false);
-                  handleNavLinkClick(e, link.href);
-                }}
-                className="block px-3 py-3 text-base font-medium text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg"
-              >
-                {link.name}
-              </Link>
-            ))}
-
-          </div>
-        </div>
-      )}
-    </nav>
+              {/* Drawer Footer / Social Info */}
+              <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
+                <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">
+                  Connect with us
+                </p>
+                <div className="flex gap-3 mb-6">
+                  <a 
+                    href="mailto:viyantechnologiesteam@gmail.com" 
+                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  >
+                    <Mail size={18} />
+                  </a>
+                  <a 
+                    href="https://viyan.in" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  >
+                    <Globe size={18} />
+                  </a>
+                  <a 
+                    href="https://wa.me/919999999999" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  >
+                    <MessageCircle size={18} />
+                  </a>
+                </div>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500">
+                  &copy; {new Date().getFullYear()} Viyan Technologies.
+                </p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

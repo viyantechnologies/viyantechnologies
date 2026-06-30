@@ -92,7 +92,7 @@ const Hero = () => {
               style={{ border: '1px dashed rgba(167,139,250,0.18)' }}
             />
 
-            {/* Outer orbit — 4 service pills, clockwise */}
+            {/* Outer orbit — 4 service circles, clockwise */}
             {[
               { label: 'Web Development', Icon: Code2,    color: '#818cf8', bg: 'rgba(99,102,241,0.15)',  angle: 0   },
               { label: 'AI Integration',  Icon: Bot,       color: '#a78bfa', bg: 'rgba(167,139,250,0.15)', angle: 90  },
@@ -106,14 +106,11 @@ const Hero = () => {
               return (
                 <motion.div
                   key={label}
-                  className="absolute flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
+                  className="absolute flex flex-col items-center justify-center group cursor-pointer"
                   style={{
                     top: '50%',
                     left: '50%',
-                    background: bg,
-                    border: `1px solid ${color}55`,
                     color,
-                    boxShadow: `0 0 12px 0px ${color}44`,
                   }}
                   animate={{
                     x: [
@@ -136,13 +133,27 @@ const Hero = () => {
                     `translate(calc(${x} + -50%), calc(${y} + -50%))`
                   }
                 >
-                  <Icon size={13} />
-                  <span>{label}</span>
+                  {/* Perfect Circle Icon Wrapper */}
+                  <div 
+                    className="flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-sm shadow-lg transition-transform duration-350 group-hover:scale-110"
+                    style={{
+                      background: bg,
+                      border: `1px solid ${color}55`,
+                      boxShadow: `0 0 12px 0px ${color}44`,
+                    }}
+                  >
+                    <Icon size={20} />
+                  </div>
+                  
+                  {/* Static Wording */}
+                  <span className="text-[10px] sm:text-xs font-semibold whitespace-nowrap mt-1.5 drop-shadow-md">
+                    {label}
+                  </span>
                 </motion.div>
               );
             })}
 
-            {/* Inner orbit — 3 service pills, counter-clockwise */}
+            {/* Inner orbit — 3 service circles, counter-clockwise */}
             {[
               { label: 'Analytics',  Icon: BarChart3,   color: '#60a5fa', bg: 'rgba(96,165,250,0.15)',  angle: 60  },
               { label: 'Cloud',      Icon: ShieldCheck, color: '#fbbf24', bg: 'rgba(251,191,36,0.15)',  angle: 180 },
@@ -152,14 +163,11 @@ const Hero = () => {
               return (
                 <motion.div
                   key={label}
-                  className="absolute flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap backdrop-blur-sm"
+                  className="absolute flex flex-col items-center justify-center group cursor-pointer"
                   style={{
                     top: '50%',
                     left: '50%',
-                    background: bg,
-                    border: `1px solid ${color}55`,
                     color,
-                    boxShadow: `0 0 10px 0px ${color}33`,
                   }}
                   animate={{
                     x: [
@@ -182,8 +190,22 @@ const Hero = () => {
                     `translate(calc(${x} + -50%), calc(${y} + -50%))`
                   }
                 >
-                  <Icon size={12} />
-                  <span>{label}</span>
+                  {/* Perfect Circle Icon Wrapper */}
+                  <div 
+                    className="flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-sm shadow-md transition-transform duration-350 group-hover:scale-110"
+                    style={{
+                      background: bg,
+                      border: `1px solid ${color}55`,
+                      boxShadow: `0 0 10px 0px ${color}33`,
+                    }}
+                  >
+                    <Icon size={16} />
+                  </div>
+                  
+                  {/* Static Wording */}
+                  <span className="text-[9px] sm:text-[10px] font-semibold whitespace-nowrap mt-1 drop-shadow-md">
+                    {label}
+                  </span>
                 </motion.div>
               );
             })}
