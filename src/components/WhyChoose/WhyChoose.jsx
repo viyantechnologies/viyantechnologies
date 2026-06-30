@@ -106,44 +106,53 @@ const WhyChoose = () => {
                   <div className="block md:hidden absolute inset-0 pointer-events-none z-0">
                     {/* Node 0 (Client) */}
                     {index === 0 && (
-                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                     {/* Node 1 */}
                     {index === 1 && (
                       <>
-                        <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
-                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 2 */}
                     {index === 2 && (
-                      <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      <>
+                        <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                      </>
                     )}
                     {/* Node 3 */}
                     {index === 3 && (
                       <>
-                        <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
-                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 4 */}
                     {index === 4 && (
-                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      <>
+                        <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                      </>
                     )}
                     {/* Node 5 */}
                     {index === 5 && (
                       <>
-                        <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
-                        <div className="absolute top-1/2 left-1/2 w-[2px] h-[calc(100%+5rem)] border-l-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                        <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 6 */}
                     {index === 6 && (
-                      <div className="absolute top-1/2 left-0 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      <>
+                        <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
+                      </>
                     )}
                     {/* Node 7 (Viyan End) */}
                     {index === 7 && (
-                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+0.5rem)] border-t-2 border-dashed border-violet-300 dark:border-slate-800/80" />
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                   </div>
 
