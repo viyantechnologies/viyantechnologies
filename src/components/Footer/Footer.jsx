@@ -1,7 +1,45 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getAssetPath } from '../../utils/assetHelper';
+
+const LinkedInIcon = ({ size = 18, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 18, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,7 +59,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 py-10 border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 pt-10 pb-6 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           
@@ -81,12 +119,12 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="col-span-2 lg:col-span-1">
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Newsletter</h4>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">Subscribe to our newsletter for the latest tech insights and company updates.</p>
-            <form className="relative">
+            <p className="text-slate-500 dark:text-slate-400 text-sm mb-2.5">Subscribe to our newsletter for updates.</p>
+            <form className="relative mb-3.5">
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-4 pr-12 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-violet-primary"
+                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-2.5 pl-4 pr-12 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-violet-primary"
                 required
               />
               <button 
@@ -97,10 +135,42 @@ const Footer = () => {
                 <ArrowRight size={16} />
               </button>
             </form>
+
+            {/* Get In Touch */}
+            <div className="pt-3 border-t border-slate-100 dark:border-slate-800/40 text-center lg:text-left">
+              <h5 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Get In Touch</h5>
+              <div className="flex justify-center lg:justify-start items-center gap-4 w-full">
+                <a
+                  href="mailto:viyantechnologiesteam@gmail.com"
+                  className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800/60 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="Mail"
+                >
+                  <Mail size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/viyan-technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800/60 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="LinkedIn"
+                >
+                  <LinkedInIcon size={20} />
+                </a>
+                <a
+                  href="https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800/60 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                  title="Instagram"
+                >
+                  <InstagramIcon size={20} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <p>&copy; {currentYear} Viyan. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>

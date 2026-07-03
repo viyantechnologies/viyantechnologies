@@ -144,37 +144,6 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* Divider */}
-              <div className="h-6 w-[1px] bg-slate-200 dark:white" />
-
-              {/* Social Links */}
-              <div className="flex items-center space-x-2">
-                <a
-                  href="mailto:viyantechnologiesteam@gmail.com"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
-                  title="Mail"
-                >
-                  <Mail size={14} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/viyan-technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
-                  title="LinkedIn"
-                >
-                  <LinkedInIcon size={14} />
-                </a>
-                <a
-                  href="https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-white dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
-                  title="Instagram"
-                >
-                  <InstagramIcon size={14} />
-                </a>
-              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -257,30 +226,33 @@ const Navbar = () => {
               {/* Drawer Footer / Social Info */}
               <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
                 <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">
-                  Connect with us
+                  Get In Touch
                 </p>
                 <div className="flex gap-3 mb-6">
                   <a
                     href="mailto:viyantechnologiesteam@gmail.com"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                    title="Mail"
                   >
                     <Mail size={18} />
                   </a>
                   <a
-                    href="https://viyan.in"
+                    href="https://www.linkedin.com/in/viyan-technologies"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                    title="LinkedIn"
                   >
-                    <Globe size={18} />
+                    <LinkedInIcon size={18} />
                   </a>
                   <a
-                    href="https://wa.me/919999999999"
+                    href="https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-350 hover:bg-violet-primary hover:text-white transition-all shadow-sm"
+                    title="Instagram"
                   >
-                    <MessageCircle size={18} />
+                    <InstagramIcon size={18} />
                   </a>
                 </div>
                 <p className="text-[10px] text-slate-400 dark:text-slate-500">

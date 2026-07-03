@@ -43,7 +43,7 @@ const InstagramIcon = ({ size = 18, ...props }) => (
 const About = () => {
   const socials = [
     { name: 'Email', icon: <Mail size={18} />, href: 'mailto:viyantechnologiesteam@gmail.com' },
-    { name: 'LinkedIn', icon: <LinkedInIcon size={18} />, href: 'www.linkedin.com/in/viyan-technologies' },
+    { name: 'LinkedIn', icon: <LinkedInIcon size={18} />, href: 'https://www.linkedin.com/in/viyan-technologies' },
     { name: 'Instagram', icon: <InstagramIcon size={18} />, href: 'https://www.instagram.com/viyan_technologies?igsh=dGkwdWtucWhvOGJn' },
   ];
 
@@ -219,13 +219,13 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="w-full order-2 lg:order-none"
             >
-              <div className="bg-slate-50 dark:bg-slate-900/30 border border-slate-200/40 dark:border-slate-800 rounded-2xl p-4 flex justify-around items-center w-full">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
                 {stats.map((stat, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-center">
-                    <span className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 dark:text-white">
+                  <div key={idx} className="flex flex-col items-center justify-center text-center bg-slate-50 dark:bg-slate-900/30 border border-slate-200/40 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+                    <span className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white">
                       {stat.value}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] text-slate-400 dark:text-slate-350 font-bold uppercase tracking-wider">
+                    <span className="text-[9px] sm:text-[10px] text-slate-400 dark:text-slate-350 font-bold uppercase tracking-wider mt-1">
                       {stat.label}
                     </span>
                   </div>

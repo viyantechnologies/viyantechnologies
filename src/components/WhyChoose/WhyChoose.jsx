@@ -70,16 +70,16 @@ const WhyChoose = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-20 md:gap-y-32 gap-x-4 md:gap-x-6 relative z-10">
             {allNodes.map((node, index) => {
               
-              // Dynamic Grid Order
+              // Dynamic Grid Order (Inverted on mobile: Viyan to Client)
               const orderClasses = [
-                'order-1 md:order-1',
-                'order-2 md:order-2',
-                'order-4 md:order-3',
-                'order-3 md:order-4',
-                'order-5 md:order-8',
-                'order-6 md:order-7',
-                'order-8 md:order-6',
-                'order-7 md:order-5'
+                'order-7 md:order-1',
+                'order-8 md:order-2',
+                'order-6 md:order-3',
+                'order-5 md:order-4',
+                'order-3 md:order-8',
+                'order-4 md:order-7',
+                'order-2 md:order-6',
+                'order-1 md:order-5'
               ];
               const orderClass = orderClasses[index];
               
@@ -91,6 +91,8 @@ const WhyChoose = () => {
                   : isUp 
                     ? 'translate-y-0 md:-translate-y-24' 
                     : 'translate-y-4 md:translate-y-24';
+              
+              const mobileConnIndex = 7 - index;
               
               return (
                 <motion.div
@@ -105,53 +107,53 @@ const WhyChoose = () => {
                   {/* Mobile Snake Connectors (Hidden on desktop) */}
                   <div className="block md:hidden absolute inset-0 pointer-events-none z-0">
                     {/* Node 0 (Client) */}
-                    {index === 0 && (
+                    {mobileConnIndex === 0 && (
                       <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                     {/* Node 1 */}
-                    {index === 1 && (
+                    {mobileConnIndex === 1 && (
                       <>
                         <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 2 */}
-                    {index === 2 && (
+                    {mobileConnIndex === 2 && (
                       <>
                         <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 3 */}
-                    {index === 3 && (
+                    {mobileConnIndex === 3 && (
                       <>
                         <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 4 */}
-                    {index === 4 && (
+                    {mobileConnIndex === 4 && (
                       <>
                         <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 5 */}
-                    {index === 5 && (
+                    {mobileConnIndex === 5 && (
                       <>
                         <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-1/2 bottom-[-2.5rem] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 6 */}
-                    {index === 6 && (
+                    {mobileConnIndex === 6 && (
                       <>
                         <div className="absolute top-1/2 left-[-1.5rem] w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                         <div className="absolute top-[-2.5rem] bottom-[50%] left-1/2 w-[3px] border-l-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                       </>
                     )}
                     {/* Node 7 (Viyan End) */}
-                    {index === 7 && (
+                    {mobileConnIndex === 7 && (
                       <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[3px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                   </div>
